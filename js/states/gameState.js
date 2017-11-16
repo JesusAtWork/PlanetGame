@@ -2,7 +2,8 @@ var gameState = {
 	preload: function() {
 		game.load.onLoadStart.add(loadStart, this);
 		game.load.onLoadComplete.add(loadComplete, this);
-		game.load.image("loading","././assets/sprites/huds/loading.png");
+		//game.load.image("loading","././assets/sprites/huds/loading.png");
+		game.load.image("guy","././assets/sprites/GameState/entitiesIcons/guy.png");
 	},
 	create: function() {
 		game.stage.backgroundColor = "#9EE4F8";
@@ -11,6 +12,7 @@ var gameState = {
 		planet = game.add.graphics(320, 640);
 		planet.beginFill("0x00aa00", 1);
 		planet.drawCircle(320, 640, 640);
+
 		planet.pivot.x = 320;
 		planet.pivot.y = 640;
 
