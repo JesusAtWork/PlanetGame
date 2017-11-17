@@ -7,7 +7,7 @@ var gameState = {
 	},
 	create: function() {
 		money = 0;
-		
+
 		drawBackGround();
 
 		planet.draw();
@@ -19,6 +19,7 @@ var gameState = {
 		enemyLifebar.draw();
 	},
 	update: function() {
+		readInput();
 		planet.rotate();
 	}
 }

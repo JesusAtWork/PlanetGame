@@ -14,7 +14,7 @@ var planet = {
 	rotate(){
 		if (rotLeft) {
 			circle.angle -=1;
-        } else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)) {
+        } else if (rotRight) {
 			circle.angle +=1;
         }
 	}
