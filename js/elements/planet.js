@@ -12,7 +12,7 @@ var planet = {
 		circle.pivot.y = this.y;
 	},
 	rotate(){
-		if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)) {
+		if (rotLeft) {
 			circle.angle -=1;
         } else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)) {
 			circle.angle +=1;
