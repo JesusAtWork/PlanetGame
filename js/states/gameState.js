@@ -6,9 +6,8 @@ var gameState = {
 		game.load.image("guy","././assets/sprites/GameState/entitiesIcons/guy.png");
 	},
 	create: function() {
-		money = 0;
-
 		drawBackGround();
+		showScore();
 
 		planet.draw();
 
@@ -19,7 +18,10 @@ var gameState = {
 		enemyLifebar.draw();
 	},
 	update: function() {
-		readInput();
+		//Inputs
+		readInputs();
+		escape()
+
 		planet.rotate();
 	}
 }
