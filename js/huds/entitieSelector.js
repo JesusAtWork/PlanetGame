@@ -8,7 +8,8 @@ class EntitieIcon{
 		this.h = 16;
 	}
 	draw(){
-		var icon = game.add.sprite(this.x,this.y,this.icon)
+		var icon = game.add.sprite(this.x,this.y,this.icon);
 	}
 }
-var entitiesIcon1 = new EntitiesIcon("first Enty","guy",0,0);
+var entitiesIcon1 = new EntitieIcon("first Enty","guy",200,200);
+entitiesIcon1.draw();
