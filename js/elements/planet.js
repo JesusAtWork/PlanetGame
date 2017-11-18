@@ -1,5 +1,5 @@
 var planet = {
-	x:320,
+	x:448,
 	y:640,
 	r:640,
 	color:0x00aa00,
@@ -14,8 +14,10 @@ var planet = {
 	rotate(){
 		if (rotLeft) {
 			circle.angle -=1;
+			baseSprite.x +=1
         } else if (rotRight) {
 			circle.angle +=1;
+			baseSprite.x -=1
         }
 	}
 }

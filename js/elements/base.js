@@ -1,9 +1,10 @@
-base = {
-	x = 100,
-	y = 100,
-	rot = 0,
-	level = 1,
+var base = {
+	x: 396,
+	y: 232,
+	rot: 0,
+	level: 1,
+	life: planet.life, //initial life
 	draw: function() {
-		game.add.sprite(this.x,this.y,"base")
+		baseSprite = game.add.sprite(this.x,this.y,"base"+this.level);
 	}
 }

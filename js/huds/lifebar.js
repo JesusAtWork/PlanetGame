@@ -19,6 +19,8 @@ class Lifebar {
 		//Draw's the fill
 		lifebar.beginFill(this.color, 1);
 		lifebar.drawRect(0, 0, this.w, 32);
+		
+		lifebar.fixedToCamera = true;
 
 		//lifebar.clear();	HACER QUE SE ACTUALISE
 	}

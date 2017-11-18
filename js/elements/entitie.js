@@ -8,7 +8,7 @@ class Entitie {
 		//move the ped
 	}
 }
-class FirstEntitie extends Entities{
+class FirstEntitie extends Entitie{
 	constructor(){
 		super();
 		this.health = 50;

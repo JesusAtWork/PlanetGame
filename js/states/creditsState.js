@@ -8,8 +8,10 @@ var creditsState = {
 	create: function() {
 		drawMenuBackground(); //Draws the Background
 		createExitBtn();
-		alert("programed by Marcelo Cornejo");
-		alert("artwork by Marcelo Cornejo");
+		var style = { font: "20px Arial", fill: "#000", align: "center" };
+		var programingText = game.add.text(96, 128,"Programed by Marcelo cornejo", style);
+
+		var artworkText = game.add.text(96, 196,"Artwork by Marcelo cornejo", style);
 	},
 	update: function() {
 		
