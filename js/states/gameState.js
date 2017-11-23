@@ -4,9 +4,7 @@ var gameState = {
 		game.load.onLoadComplete.add(loadComplete, this);
 		game.load.image("base1","././assets/sprites/GameState/Elements/base/base1.png")
 		//game.load.image("loading","././assets/sprites/huds/loading.png");
-		//game.load.image("guy","././assets/sprites/huds/entitiesIcons/guy.png");
-		game.load.spritesheet("ped","././assets/sprites/GameState/ped/run.png",
-									32,64,4);
+		//game.load.image("guy","././assets/sprites/huds/entitiesIcons/guy.png");									32,64,4);
 	},
 	create: function() {
 		game.world.setBounds(0, 0, 896, 1280);
@@ -21,6 +19,8 @@ var gameState = {
 
 		playerLifebar.draw();
 		enemyLifebar.draw();
+		// Draw The entities Btns
+		var entitieBtn = game.add.button(32, 32, 'exampleEntitie', createEntitie("example"), this, 2, 1, 0);
 
 		showScore();
 	},

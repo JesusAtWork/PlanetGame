@@ -8,20 +8,21 @@ class Entitie {
 		//move the ped
 	}
 }
-class FirstEntitie extends Entitie{
-	constructor(){
+class Example extends Entitie{
+	constructor(dir){
 		super();
 		this.health = 50;
 		this.speed = 5;
 		this.damege = 10; // Damage/s
-		this.helmet = "leather";
+		this.dir = dir // 1 -1
+		/*this.helmet = "leather";
 		this.body = "leather";
 		this.pants = "leather";
-		this.shoes = "leather";
+		this.shoes = "leather";*/
 	}
 	display(){
-		//ped = game.add.graphics(this.x, this.y);
-		//ped.beginFill("0x00aa00", 1);
-		//ped.drawCircle(16, 16, 16);	
+		entitie = game.add.graphics(this.x, this.y);
+		entitie.beginFill("0x00aa00", 1);
+		entitie.drawCircle(16, 16, 16);
 	}
 }
