@@ -4,17 +4,19 @@ class Entitie {
 		this.y = y;
 		this.rot = rot;
 	}
-	move(dir){
-		//move the ped
+	walkLeft(){
+		console.log("walking left...")
+	}
+	walkRight(){
+		console.log("walking right...")
 	}
 }
 class Example extends Entitie{
-	constructor(dir){
+	constructor(){
 		super();
 		this.health = 50;
 		this.speed = 5;
 		this.damege = 10; // Damage/s
-		this.dir = dir // 1 -1
 		/*this.helmet = "leather";
 		this.body = "leather";
 		this.pants = "leather";
