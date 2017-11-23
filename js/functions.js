@@ -2,13 +2,13 @@
 
 function drawMenuBackground() {
 	//draws the border
-  
+
     var border = game.add.graphics(0, 0);
     border.lineStyle(16, 0x000000, 1);
     border.drawRect(0, 0, game.width, game.height);
 }
 function drawWindowHud(size) {
-	if (size="big") {
+	if (size = "big") {
 	    var windowHud = game.add.graphics(0,0);
     	windowHud.beginFill(0x000000, 0.5);
 	    windowHud.drawRect(32, 32, 576, 416);
