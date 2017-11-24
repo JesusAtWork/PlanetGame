@@ -1,24 +1,33 @@
-class Example{
+class Objeto{
+	constructor(){
+		this.time=0;
+		this.h = 400;
+		this.rot = 270;
+
+}
+
+update(){
+		if(this.h-Math.pow(this.time,2)/14>0){
+			this.h-=Math.pow(this.time,2)/14
+			this.time+=1;
+		}else{
+			this.h=0;
+			this.time=0;
+		}
+	}
+}
+
+
+class Example extends Objeto{
 	constructor(sprite){
-
-		this.x = base.x+64;
-		this.y =  base.y+72;
-
-		this.t=0;
-
+		super();
 		this.sprite = sprite;
 		this.radius = Math.random()*90+35;
 
-		this.h = 400;
-		this.rot = 270;
+
 		this.health = 50;
 		this.speed = 0.5;
-		this.damege = 10; // Damage/s
-
-		/*this.helmet = "leather";
-		this.body = "leather";
-		this.pants = "leather";
-		this.shoes = "leather";*/
+		this.damege = 10;
 	}
 	display(){
 		this.sprite = game.add.graphics(0,0);  // remplace for sprite
@@ -36,12 +45,6 @@ class Example{
 		this.rot += this.speed;
 	}
 	update(){
-		if(this.h-Math.pow(this.t,2)/14>0){
-			this.h-=Math.pow(this.t,2)/14
-		}else{
-			this.h=0;
-		}
-		this.t+=1;
-
-}
+		super.update();
+	}
 }

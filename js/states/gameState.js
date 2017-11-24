@@ -42,6 +42,7 @@ var gameState = {
 			entities[i].walkLeft();
 			entities[i].update();
 		}
+
 		t++
 	}
 }

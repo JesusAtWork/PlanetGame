@@ -4,7 +4,6 @@ function createEntitie(type) {
 		eval('example'+exampleId+' = new Example("example'+exampleId+'")');
 		entities.push(eval('example'+exampleId));
 		entities[exampleId].display();
-		entities[exampleId].update();
 		exampleId++
 	}
 }
