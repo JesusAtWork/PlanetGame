@@ -2,11 +2,12 @@ var gameState = {
 	preload: function() {
 		game.load.onLoadStart.add(loadStart, this);
 		game.load.onLoadComplete.add(loadComplete, this);
-		game.load.image("base1","././assets/sprites/GameState/Elements/base/base1.png")
+		game.load.image("base1","././assets/sprites/GameState/Elements/base/base1.png");
+		game.load.image("exampleEntitie","././assets/sprites/huds/entitiesIcons/example.png");
 		//game.load.image("loading","././assets/sprites/huds/loading.png");
-		game.load.image("examle","././assets/sprites/huds/entitiesIcons/examle.png");									32,64,4);
 	},
 	create: function() {
+		t = 0
 		game.world.setBounds(0, 0, 896, 1280);
 		drawBackGround();
 
@@ -19,36 +20,28 @@ var gameState = {
 
 		playerLifebar.draw();
 		enemyLifebar.draw();
-		// Huds
-		var entitieBtn = game.add.button(32, 32, 'exampleEntitie', createEntitie("example"), this, 2, 1, 0);
 
+		entities = [];
+		var exampleEntitieBtn = game.add.button(32, 96, 'exampleEntitie',function(){createEntitie("example")}, this, 2, 1, 0).fixedToCamera = true;
 		showScore();
-
-		entities = []; // entities array
-
-		function displayEntities() {
-			for (var i = 0; i < entities.length; i++) {
-				entities[i].display();
-			}
-		}
-		displayEntities();
 	},
 	update: function() {
+
 		//Inputs
 		readInputs();
 		escape();
-
-		planet.rotate();
 
 		if (playerLifebar.life<=0) {
 			alert("lose");
 		}else if(enemyLifebar.life<=0){
 			alert("win")
 		}
-		//entities
+		//entities loop funcions
+
 		for (var i = 0; i < entities.length; i++) {
-			entities[i].display();
-			entities[i].move();
+			entities[i].walkLeft();
+			entities[i].update();
 		}
+		t++
 	}
 }

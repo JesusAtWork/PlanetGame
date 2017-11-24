@@ -1,17 +1,5 @@
 function readInputs() {
-	rotLeft =  game.input.keyboard.isDown(Phaser.Keyboard.LEFT)
-			|| game.input.keyboard.isDown(Phaser.Keyboard.A);
-
-	rotRight = game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)
-			|| game.input.keyboard.isDown(Phaser.Keyboard.D);
-
 	esc = game.input.keyboard.isDown(Phaser.Keyboard.ESC);
-
-	//debug
-	firstChr = game.input.keyboard.isDown(Phaser.Keyboard.NUMPAD_1);
-	secoundChr = game.input.keyboard.isDown(Phaser.Keyboard.NUMPAD_2);
-	thirdChr = game.input.keyboard.isDown(Phaser.Keyboard.NUMPAD_3);
-
 	moveCamera();
 }
 function escape() {
