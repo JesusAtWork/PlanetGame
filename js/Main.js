@@ -5,4 +5,4 @@ game.state.add("credits",creditsState);
 game.state.add("setting",settingState);
 game.state.add("game",gameState);
 
-game.state.start("mainMenu");
+game.state.start("game");

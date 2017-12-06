@@ -1,12 +1,10 @@
-class Objeto{
+class Entitie{
 	constructor(){
 		this.time=0;
-		this.h = 400;
+		this.h = base.y-128;
 		this.rot = 270;
-
-}
-
-update(){
+	}
+	update(){
 		if(this.h-Math.pow(this.time,2)/14>0){
 			this.h-=Math.pow(this.time,2)/14
 			this.time+=1;
@@ -18,15 +16,14 @@ update(){
 }
 
 
-class Example extends Objeto{
+class Example extends Entitie{
 	constructor(sprite){
 		super();
 		this.sprite = sprite;
-		this.radius = Math.random()*90+35;
-
+		this.radius = 50;
 
 		this.health = 50;
-		this.speed = 0.5;
+		this.speed = 0.15;
 		this.damege = 10;
 	}
 	display(){
@@ -35,10 +32,12 @@ class Example extends Objeto{
 		this.sprite.drawCircle(0, 0, this.radius);
 	}
 	walkLeft(){
-		this.sprite.position.x = Math.cos(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.x;
-		this.sprite.position.y = Math.sin(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.y;
+			this.sprite.position.x = Math.cos(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.x;
+			this.sprite.position.y = Math.sin(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.y;
 
-		this.rot -= this.speed/2;
+		if (true) {
+			this.rot -= this.speed/2;
+		}
 	}
 	walkRight(){
 		//console.log("walking right...");

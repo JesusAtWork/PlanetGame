@@ -11,8 +11,7 @@ var gameState = {
 		game.world.setBounds(0, 0, 896, 1280);
 		drawBackGround();
 
-		planet.draw(); //create planet
-		base.draw(); //Draws the base
+		planet.draw();
 
 		//Draw The lifebars
 		playerLifebar = new Lifebar(16,16,0x00ff00);
@@ -21,12 +20,15 @@ var gameState = {
 		playerLifebar.draw();
 		enemyLifebar.draw();
 
+		base.draw();
+		enemyBase.draw();
+
 		entities = [];
 		var exampleEntitieBtn = game.add.button(32, 96, 'exampleEntitie',function(){createEntitie("example")}, this, 2, 1, 0).fixedToCamera = true;
 		showScore();
+		showMoney();
 	},
 	update: function() {
-
 		//Inputs
 		readInputs();
 		escape();

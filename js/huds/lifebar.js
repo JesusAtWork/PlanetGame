@@ -1,6 +1,6 @@
 class Lifebar {
 	constructor(x,y,color){
-		this.life = 128;
+		this.life = base.life;
 		this.x = x;
 		this.y = y;
 		this.w = this.life*2;
@@ -27,7 +27,7 @@ class Lifebar {
 }
 class Lifebar2 {
 	constructor(x,y,w,h,r,color){
-		this.life = 128;
+		this.life = base.life;
 		this.x = x;
 		this.y = y;
 		this.w = w;

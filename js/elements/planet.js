@@ -1,7 +1,7 @@
 var planet = {
 	x:448,
 	y:640,
-	radius:500,
+	radius:700,
 	color:0x00aa00,
 	draw : function(){
 		circle = game.add.graphics(this.x, this.y);
