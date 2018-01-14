@@ -6,7 +6,7 @@ import EnemyBase from './elements/base';
 import Entitie from './elements/entitie';
 import Planet from './elements/planet';
 
-import Hud from './huds/entitieCreator';
+import EntitieGenerator from './huds/entitieGenerator';
 import Lifebar from './huds/lifebar';
 import Planet from './huds/money';
 import Score from './huds/score';
@@ -45,7 +45,7 @@ class Game extends Phaser.State {
 		enemyBase.draw();
 
 		entities = [];
-		var exampleEntitieBtn = this.add.button(32, 96, 'exampleEntitie',function(){createEntitie("example")}, this, 2, 1, 0).fixedToCamera = true;
+		var exampleEntitieBtn = this.add.button(32, 96, 'exampleEntitie',function(){EntitieGenerator.createEntitie("example")}, this, 2, 1, 0).fixedToCamera = true;
 		Score.showScore();
 		Money.showMoney();
 	}
