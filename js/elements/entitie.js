@@ -15,7 +15,6 @@ class Entitie{
 	}
 }
 
-
 class Example extends Entitie{
 	constructor(sprite){
 		super();
@@ -32,8 +31,8 @@ class Example extends Entitie{
 		this.sprite.drawCircle(0, 0, this.radius);
 	}
 	walkLeft(){
-			this.sprite.position.x = Math.cos(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.x;
-			this.sprite.position.y = Math.sin(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.y;
+		this.sprite.position.x = Math.cos(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.x;
+		this.sprite.position.y = Math.sin(this.rot*Math.PI/180)*(planet.radius+this.radius+this.h)/2+planet.y;
 
 		if (true) {
 			this.rot -= this.speed/2;
@@ -41,7 +40,7 @@ class Example extends Entitie{
 	}
 	walkRight(){
 		//console.log("walking right...");
-		this.rot += this.speed;
+		//this.rot += this.speed;
 	}
 	update(){
 		super.update();
