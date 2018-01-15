@@ -1,9 +1,12 @@
 class Window {
+	constructor(game){
+		this.game = game;
+	}
 	createExitBtn() {
-		var exitBtn = game.add.button(
+		var exitBtn = this.game.add.button(
 		32,32,'exitBtn',
 		function openWindow() {
-			game.state.start("mainMenu");
+			this.game.state.start("mainMenu");
 		},
 		this,0,1,2,3);
 	}

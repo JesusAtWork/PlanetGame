@@ -1,9 +1,10 @@
-import Background from './elements/Background';
-import Window from './huds/windows';
+import Background from '../elements/Background.js';
+import Window from '../huds/windows.js';
 
 class Credits extends Phaser.State {
-	constructor() {
+	constructor(game) {
 		super();
+		this.game = game;
 	}
 	preload() {
 		this.stage.backgroundColor = "#fff";
@@ -12,12 +13,14 @@ class Credits extends Phaser.State {
 			60,64,4);
 	}
 	create() {
-		Background.drawMenuBackground(); //Draws the Background
-		Window.createExitBtn();
+		var window = new Window(this.game);
+		window.createExitBtn();
+		//var background = new Background(this.game);
+		//background.drawMenuBackground();
 		var style = { font: "20px Arial", fill: "#000", align: "center" };
-		var programingText = this.add.text(96, 128,"Programed by Marcelo cornejo", style);
+		var programingText = this.game.add.text(96, 128,"Programed by Marcelo cornejo", style);
 
-		var artworkText = this.add.text(96, 196,"Artwork by Marcelo cornejo", style);
+		var artworkText = this.game.add.text(96, 196,"Artwork by Marcelo cornejo", style);
 	}
 	update() {
 		

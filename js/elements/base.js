@@ -1,27 +1,21 @@
 class Base {
-	constructor(){
-		this.x = planet.x-64,
-		this.y = planet.y-planet.radius/2-90,
-		this.rot = 0,
+	constructor(player,game,x,y){
+		this.player = player,
+		this.game = game,
+		this.x = x,
+		this.y = y,
 		this.level = 1,
-		this.life = 128,
+		this.life = 128
 	}
 	draw(){
-		baseSprite = game.add.sprite(this.x,this.y,"base"+this.level);
+		if (this.player == 1) {
+			var playerBaseSprite = this.game.add.sprite(this.x,this.y,"base"+this.level);
+		}
+		else if(this.player == 2){
+			var enemyBaseSprite = this.game.add.sprite(this.x,this.y,"base"+this.level);
+			enemyBaseSprite.angle = 180;
+			enemyBaseSprite.anchor.setTo(0.5);
+		}
 	}	
 }
-class EnemyBase {
-	constructor(){
-		this.x = planet.x+64,
-		this.y = planet.y+planet.radius/2+90,
-		this.rot = 180,
-		this.level = 1,
-		this.life = 128,
-	}
-	draw(){
-		baseSprite = game.add.sprite(this.x,this.y,"base"+this.level);
-		baseSprite.angle = this.rot;
-	}
-}
 export default Base;
-export default EnemyBase;

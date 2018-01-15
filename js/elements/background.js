@@ -1,13 +1,15 @@
 class Background {
-	drawBackground() {
-		game.stage.backgroundColor = "#9EE4F8";
+	constructor(game){
+		this.game = game;
 	}
-	drawMenuBackground() {
+	drawBackground() {
+		this.game.state.backgroundColor = "#9EE4F8";
+	}
+	drawBackgroundMenu() {
 		//draws the border
-
-	    var border = game.add.graphics(0, 0);
+	    var border = this.game.add.graphics(0, 0);
 	    border.lineStyle(16, 0x000000, 1);
-	    border.drawRect(0, 0, game.width, game.height);
+	    border.drawRect(0, 0, 640, 480);
 	}
 }
 export default Background;

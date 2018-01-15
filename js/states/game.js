@@ -1,64 +1,77 @@
-import Preloader from './Preloader'
-import Background from './elements/Background';
+import Preloader from '../Preloader.js'
+import Background from '../elements/Background.js';
 
-import Base from './elements/base';
-import EnemyBase from './elements/base';
-import Entitie from './elements/entitie';
-import Planet from './elements/planet';
+import Input from '../input.js'
+import Base from '../elements/base.js';
+import Entitie from '../elements/entitie.js';
+import Planet from '../elements/planet.js';
 
-import EntitieGenerator from './huds/entitieGenerator';
-import Lifebar from './huds/lifebar';
-import Planet from './huds/money';
-import Score from './huds/score';
-import Money from './huds/money';
+import EntitieGenerator from '../huds/entitieGenerator.js';
+import Lifebar from '../huds/lifebar.js';
+import Score from '../huds/score.js';
+import Money from '../huds/money.js';
+
+var entities = [];
+var time = 0
 
 class Game extends Phaser.State {
-	constructor() {
+	constructor(game) {
 		super();
+		this.game = game;
 	}
 	preload() {
-		this.load.onLoadStart.add(Preloader.loadStart, this);
-		this.load.onLoadComplete.add(Preloader.loadComplete, this);
-		this.load.image("base1","././assets/sprites/GameState/Elements/base/base1.png");
+		var preloader = new Preloader;
+
+		//this.load.onLoadStart.add(preloader.loadStart(this.game), this);
+		//this.load.onLoadComplete.add(preloader.loadComplete(this.game), this);
+		this.load.image("base1","././assets/sprites/GameState/Elements/base/base1.png");  
 		this.load.image("exampleEntitie","././assets/sprites/huds/entitiesIcons/example.png");
 		//this.load.image("loading","././assets/sprites/huds/loading.png");
 	}
 	create() {
-		t = 0
-		this.world.setBounds(0, 0, 896, 1280);
-		Background.drawBackGround();
+		//this.world.setBounds(0, 0, 896, 1280);
 
-		planet = new Planet;
+		var background = new Background(this.game);
+		background.drawBackground();
+
+		var planet = new Planet(this.game);
 		planet.draw();
 
-		//Draw The lifebars
-		playerLifebar = new Lifebar(16,16,0x00ff00);
-		enemyLifebar = new Lifebar(this.width-272,16,0xff0000);
+		var playerLifebar = new Lifebar(this.game,16,16,0x00ff00);
+		var enemyLifebar = new Lifebar(this.game,this.game.width-256,16,0xff0000);
+
+		var playerBase = new Base(1,this.game,296,52);
+		var enemyBase = new Base(2,this.game,328,452);
 
 		playerLifebar.draw();
 		enemyLifebar.draw();
 
-		base = new Base;
-		base.draw();
-
-		enemyBase = new EnemyBase;
+		playerBase.draw();
 		enemyBase.draw();
 
-		entities = [];
-		var exampleEntitieBtn = this.add.button(32, 96, 'exampleEntitie',function(){EntitieGenerator.createEntitie("example")}, this, 2, 1, 0).fixedToCamera = true;
-		Score.showScore();
-		Money.showMoney();
+		var entitieGenerator = new EntitieGenerator(this.game);
+		var exampleEntitieBtn = this.add.button(32, 96, 'exampleEntitie',function(){
+			entitieGenerator.create(money.money,"example",entities)
+		},this, 2, 1, 0).fixedToCamera = true;
+
+		var score = new Score(this.game);
+		var money = new Money(this.game);
+
+		score.showScore();
+		money.showMoney();
 	}
 	update() {
 		//Inputs
-		readInputs();
-		escape();
+		var input = new Input(this.game);
+		input.update();
+		input.readKeys();
+		input.escapeMenu();
 
-		if (playerLifebar.life<=0) {
-			alert("lose");
-		}else if(enemyLifebar.life<=0){
-			alert("win")
-		}
+		//Lifebar
+
+		//playerLifebar.update();
+		//enemyLifebar.update();
+
 		//entities loop funcions
 
 		for (var i = 0; i < entities.length; i++) {
@@ -66,7 +79,7 @@ class Game extends Phaser.State {
 			entities[i].update();
 		}
 
-		t++
+		time++
 	}
 }
-export default gameState;
+export default Game;

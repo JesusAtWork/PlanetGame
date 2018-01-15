@@ -1,9 +1,11 @@
 class Score {
+	constructor(game){
+		this.game = game;
+		this.score = 0;
+	}
 	showScore() {
-		score = 0;
-
 		var style = { font: "20px Arial", fill: "#000", align: "center" };
-		var scoreText = game.add.text(16, 48,"score: "+score, style); //UPDATING
+		var scoreText = this.game.add.text(16, 48,"score: "+this.score, style); //UPDATING
 		scoreText.fixedToCamera = true;
 	}
 }

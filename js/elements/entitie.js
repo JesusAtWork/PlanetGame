@@ -1,7 +1,8 @@
 class Entitie{
-	constructor(){
+	constructor(game){
+		this.game = game;
 		this.time=0;
-		this.h = base.y-128;
+		this.h = 72;
 		this.rot = 270;
 	}
 	update(){
@@ -26,7 +27,7 @@ class Example extends Entitie{
 		this.damege = 10;
 	}
 	display(){
-		this.sprite = game.add.graphics(0,0);  // remplace for sprite
+		this.sprite = this.game.add.graphics(0,0);  // remplace for sprite
 		this.sprite.beginFill("0xff0000", 1);
 		this.sprite.drawCircle(0, 0, this.radius);
 	}
@@ -46,3 +47,4 @@ class Example extends Entitie{
 		super.update();
 	}
 }
+export default Example;

@@ -1,4 +1,4 @@
-import Background from './elements/background';
+import Background from '../elements/background.js';
 class MainMenu extends Phaser.State {
 	constructor() {
 		super();
@@ -9,22 +9,18 @@ class MainMenu extends Phaser.State {
 		this.load.image("logo", "././assets/sprites/mainMenuState/logo.png");
 		this.load.spritesheet('playBtn',
 			'././assets/sprites/mainMenuState/playBtn.png',
-			240,84,4);
+			480,84,4);
 		this.load.spritesheet('settingBtn',
 			'././assets/sprites/mainMenuState/settingBtn.png',
 			240,84,4);
 		this.load.spritesheet('creditsBtn',
 			'././assets/sprites/mainMenuState/creditsBtn.png',
 			240,84,4);
-		this.load.spritesheet('archievementsBtn',
-			'././assets/sprites/mainMenuState/archievementsBtn.png',
-			240,84,4);
 	}
 	create() {
-		Background.drawMenuBackground(); //Draws the Background
-		//Create Logo
+		//Background.drawBackgroundMenu(); //Draws the Background
 
-		var logo = this.add.sprite(this.width/2,96, "logo");
+		var logo = this.add.sprite(320,96, "logo");
 		logo.anchor.setTo(0.5)
 
 		//Create Play Buttom
@@ -44,8 +40,8 @@ class MainMenu extends Phaser.State {
 		//Create Setting Buttom
 
 		var settingBtn = this.add.button(
-			this.world.centerX,
-			this.world.centerY+80,
+			200,
+			this.world.centerY+100,
 			'settingBtn',
 			function openWindow() {
 				this.state.start("setting");
@@ -58,8 +54,8 @@ class MainMenu extends Phaser.State {
 		//Create credits Buttom
 
 		var creditsBtn = this.add.button(
-			this.world.centerX,
-			this.world.centerY+160,
+			450,
+			this.world.centerY+100,
 			'creditsBtn',
 			function openWindow() {
 				this.state.start("credits");
@@ -68,20 +64,6 @@ class MainMenu extends Phaser.State {
 
 		creditsBtn.anchor.setTo(0.5)
 		creditsBtn.input.useHandCursor = true;
-
-		//Create archievements Buttom
-
-		var archivementsBtn = this.add.button(
-			this.world.centerX+200,
-			this.world.centerY,
-			'archievementsBtn',
-			function openWindow() {
-				this.state.start("archievements");
-			},
-			this,0,1,2,3);
-
-		archivementsBtn.anchor.setTo(0.5)
-		archivementsBtn.input.useHandCursor = true;
 	}
 	update() {
 		
